@@ -297,28 +297,58 @@
     <!-- Service End -->
 
 
-    <!-- Banner / CTA Start -->
+    <!-- Banner / CTA Start (КАЛЬКУЛЯТОР) -->
     <div id="calculator" class="container-fluid py-5 bg-secondary">
         <div class="container py-5">
-            <div class="row g-0 justify-content-center">
-                <div class="col-lg-7 text-center">
-                    <div class="title mx-5 px-5 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="title-center">
-                            <h5 data-i18n="cta_kicker">Розрахунок</h5>
-                            <h1 data-i18n="cta_heading">Потрібен попередній прорахунок?</h1>
-                        </div>
-                    </div>
-                    <p class="fs-5 mb-5 wow fadeInUp" data-wow-delay="0.2s" data-i18n="cta_desc">
-                        Залиште контакти або перейдіть до калькулятора вартості, щоб зорієнтуватися по обсягах і термінах робіт.
-                    </p>
-                    <div class="position-relative wow fadeInUp" data-wow-delay="0.3s">
-                        <input id="cta-input" class="form-control border-0 bg-dark rounded-pill w-100 py-4 ps-4 pe-5" type="text"
-                            placeholder="Ваш телефон або email">
-                        <button type="button" class="btn btn-primary py-3 px-4 position-absolute top-0 end-0 me-2"
-                            style="margin-top: 7px;" data-i18n="cta_btn">Надіслати запит</button>
+            <div class="text-center">
+                <div class="title wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="title-center">
+                        <h5 data-i18n="cta_kicker">Розрахунок</h5>
+                        <h1 data-i18n="cta_heading">Калькулятор вартості</h1>
                     </div>
                 </div>
+                <p class="fs-5 mb-5 wow fadeInUp" data-wow-delay="0.2s" data-i18n="cta_desc">
+                    Заповніть форму, і ми зв'яжемося з вами для попереднього розрахунку вартості.
+                </p>
             </div>
+
+            <form id="calc-form" class="calc-form wow fadeInUp" data-wow-delay="0.3s" novalidate>
+                <div class="calc-field">
+                    <label for="calc-type" data-i18n="calc_type_label">Тип нерухомості</label>
+                    <select id="calc-type" name="type" class="calc-input calc-select" required>
+                        <option value="apartment" data-i18n="calc_opt_apartment">Квартира</option>
+                        <option value="house" data-i18n="calc_opt_house">Будинок</option>
+                        <option value="commercial" data-i18n="calc_opt_commercial">Комерційний об'єкт</option>
+                    </select>
+                </div>
+
+                <div class="calc-field">
+                    <label for="calc-area" data-i18n="calc_area_label">Площа об'єкта</label>
+                    <input id="calc-area" name="area" type="number" inputmode="decimal" min="1" step="any"
+                        class="calc-input" placeholder="Площа, м²" data-i18n-ph="calc_area_ph" required>
+                </div>
+
+                <div class="calc-field">
+                    <label for="calc-name" data-i18n="calc_name_label">Ім'я</label>
+                    <input id="calc-name" name="name" type="text" autocomplete="name"
+                        class="calc-input" placeholder="Ваше ім'я" data-i18n-ph="calc_name_ph" required>
+                </div>
+
+                <div class="calc-field">
+                    <label for="calc-phone" data-i18n="calc_phone_label">Номер телефону</label>
+                    <input id="calc-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                        class="calc-input" placeholder="+380 XX XXX XX XX" data-i18n-ph="calc_phone_ph" required>
+                </div>
+
+                <!-- Захист від спам-ботів (людина це поле не бачить) -->
+                <input type="text" name="website" class="calc-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <button type="submit" id="calc-submit" class="btn btn-primary calc-submit">
+                    <span data-i18n="calc_btn">Надіслати запит</span>
+                </button>
+
+                <p id="calc-status" class="calc-status" role="status" aria-live="polite"></p>
+            </form>
         </div>
     </div>
     <!-- Banner / CTA End -->
@@ -342,8 +372,7 @@
                             <img class="img-fluid" src="img2/07.jpg" alt="Об'єкт 1">
                         </div>
                         <a class="team-name" href="#contact">
-                            <h5 class="text-uppercase mb-0" data-i18n="prj_1">Дизайн-проект двокімнатної квартири в ЖК Паркове місто (запущений ремонт)
-Київ 2025а</h5>
+                            <h5 class="text-uppercase mb-0" data-i18n="prj_1">Дизайн-проєкти</h5>
                         </a>
                     </div>
                 </div>
@@ -353,7 +382,7 @@
                             <img class="img-fluid" src="img2/06.jpg" alt="Об'єкт 2">
                         </div>
                         <a class="team-name" href="#contact">
-                            <h5 class="text-uppercase mb-0" data-i18n="prj_2">Об'єкт #02</h5>
+                            <h5 class="text-uppercase mb-0" data-i18n="prj_2">Об'єкти з нуля</h5>
                         </a>
                     </div>
                 </div>
@@ -363,7 +392,7 @@
                             <img class="img-fluid" src="img2/05.jpg" alt="Об'єкт 3">
                         </div>
                         <a class="team-name" href="#contact">
-                            <h5 class="text-uppercase mb-0" data-i18n="prj_3">Об'єкт #03</h5>
+                            <h5 class="text-uppercase mb-0" data-i18n="prj_3">Ремонт під ключ</h5>
                         </a>
                     </div>
                 </div>
@@ -373,7 +402,7 @@
                             <img class="img-fluid" src="img2/111.jpg" alt="Об'єкт 4">
                         </div>
                         <a class="team-name" href="#contact">
-                            <h5 class="text-uppercase mb-0" data-i18n="prj_4">Об'єкт #04</h5>
+                            <h5 class="text-uppercase mb-0" data-i18n="prj_4">Запущені проєкти</h5>
                         </a>
                     </div>
                 </div>
@@ -592,16 +621,29 @@
                 srv_4_desc: "Проєктування та монтаж електрики, опалення, водопостачання, систем безпеки й автономності, щоб об'єкт працював стабільно та безпечно.",
                 srv_4_cta: "Дізнатись більше",
                 cta_kicker: "Розрахунок",
-                cta_heading: "Потрібен попередній прорахунок?",
-                cta_desc: "Залиште контакти або перейдіть до калькулятора вартості, щоб зорієнтуватися по обсягах і термінах робіт.",
-                cta_placeholder: "Ваш телефон або email",
-                cta_btn: "Надіслати запит",
+                cta_heading: "Калькулятор вартості",
+                cta_desc: "Заповніть форму, і ми зв'яжемося з вами для попереднього розрахунку вартості.",
+                calc_type_label: "Тип нерухомості",
+                calc_opt_apartment: "Квартира",
+                calc_opt_house: "Будинок",
+                calc_opt_commercial: "Комерційний об'єкт",
+                calc_area_label: "Площа об'єкта",
+                calc_area_ph: "Площа, м²",
+                calc_name_label: "Ім'я",
+                calc_name_ph: "Ваше ім'я",
+                calc_phone_label: "Номер телефону",
+                calc_phone_ph: "+380 XX XXX XX XX",
+                calc_btn: "Надіслати запит",
+                calc_sending: "Надсилаємо...",
+                calc_ok: "Дякуємо! Заявку отримано, ми зв'яжемося з вами найближчим часом.",
+                calc_err: "Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.",
+                calc_invalid: "Перевірте, будь ласка, виділені поля.",
                 prj_kicker: "Об'єкти",
                 prj_heading: "Реалізовані проєкти",
-                prj_1: "Дизайн-проекти",
+                prj_1: "Дизайн-проєкти",
                 prj_2: "Об'єкти з нуля",
-                prj_3: "РЕМОНТ ПІД КЛЮЧ",
-                prj_4: "ЗАПУЩЕНІ ПРОЄКТИ",
+                prj_3: "Ремонт під ключ",
+                prj_4: "Запущені проєкти",
                 rev_kicker: "Відгуки",
                 rev_heading: "Що кажуть клієнти",
                 rev_1_text: "Усе зробили вчасно і без зайвих нервів. Чітка комунікація, зрозумілі етапи й якісний результат на виході.",
@@ -657,10 +699,23 @@
                 srv_4_desc: "Design and installation of electrical, heating, plumbing, security systems, and backup power so the property runs reliably and safely.",
                 srv_4_cta: "Learn More",
                 cta_kicker: "Estimate",
-                cta_heading: "Need a Preliminary Estimate?",
-                cta_desc: "Leave your contact details or open the cost calculator to get a clear idea of scope and timelines.",
-                cta_placeholder: "Your phone or email",
-                cta_btn: "Send Request",
+                cta_heading: "Cost Calculator",
+                cta_desc: "Fill in the form and we will contact you with a preliminary cost estimate.",
+                calc_type_label: "Property type",
+                calc_opt_apartment: "Apartment",
+                calc_opt_house: "House",
+                calc_opt_commercial: "Commercial property",
+                calc_area_label: "Property area",
+                calc_area_ph: "Area, m²",
+                calc_name_label: "Name",
+                calc_name_ph: "Your name",
+                calc_phone_label: "Phone number",
+                calc_phone_ph: "+380 XX XXX XX XX",
+                calc_btn: "Send Request",
+                calc_sending: "Sending...",
+                calc_ok: "Thank you! Your request has been received, we will contact you shortly.",
+                calc_err: "Could not send. Please try again or call us.",
+                calc_invalid: "Please check the highlighted fields.",
                 prj_kicker: "Portfolio",
                 prj_heading: "Completed Projects",
                 prj_1: "Design Projects",
@@ -703,11 +758,13 @@
                 }
             });
 
-            // Оновлюємо placeholder у полі вводу
-            const ctaInput = document.getElementById("cta-input");
-            if (ctaInput && dict.cta_placeholder) {
-                ctaInput.placeholder = dict.cta_placeholder;
-            }
+            // Підставляємо переклад у placeholder-и полів (атрибут data-i18n-ph)
+            document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+                const key = el.getAttribute("data-i18n-ph");
+                if (dict[key] !== undefined) {
+                    el.placeholder = dict[key];
+                }
+            });
 
             // Зберігаємо мову, щоб не збивалась при оновленні сторінки
             try {
@@ -737,6 +794,129 @@
             });
         });
     </script>
-</body>
 
-</html>
+    <!-- Calculator form: перевірка полів + відправка через Web3Forms -->
+<script>
+    (function () {
+        const form = document.getElementById("calc-form");
+        if (!form) return;
+
+        const statusEl = document.getElementById("calc-status");
+        const btn = document.getElementById("calc-submit");
+        const btnText = btn.querySelector("span");
+
+        const WEB3FORMS_ACCESS_KEY = "01612118-9851-4d8c-ba0b-b1190055c1ef";
+
+        function t(key) {
+            const lang = document.documentElement.lang === "en" ? "en" : "uk";
+            return (translations[lang] && translations[lang][key]) ||
+                   translations.uk[key] || "";
+        }
+
+        function setStatus(msg, type) {
+            statusEl.textContent = msg;
+            statusEl.className = "calc-status" + (type ? " is-" + type : "");
+        }
+
+        form.querySelectorAll(".calc-input").forEach(function (el) {
+            el.addEventListener("input", function () {
+                el.classList.remove("is-invalid");
+            });
+            el.addEventListener("change", function () {
+                el.classList.remove("is-invalid");
+            });
+        });
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const f = form.elements;
+            const area = parseFloat(String(f.area.value).replace(",", "."));
+            const name = f.name.value.trim();
+            const phone = f.phone.value.trim();
+            const digits = phone.replace(/\D/g, "");
+
+            const bad = [];
+
+            if (!(area > 0 && area < 100000)) bad.push(f.area);
+            if (name.length < 2) bad.push(f.name);
+
+            if (!/^\+?[\d\s()-]{10,20}$/.test(phone) ||
+                digits.length < 10 || digits.length > 15) {
+                bad.push(f.phone);
+            }
+
+            form.querySelectorAll(".calc-input").forEach(function (el) {
+                el.classList.remove("is-invalid");
+            });
+
+            if (bad.length) {
+                bad.forEach(function (el) {
+                    el.classList.add("is-invalid");
+                });
+                bad[0].focus();
+                setStatus(t("calc_invalid"), "error");
+                return;
+            }
+
+            // Захист від автоматичного заповнення прихованого поля
+            if (f.website.value.trim() !== "") {
+                return;
+            }
+
+            btn.disabled = true;
+            btnText.textContent = t("calc_sending");
+            setStatus("", "");
+
+            const propertyType =
+                f.type.options[f.type.selectedIndex].text;
+
+            const payload = {
+                access_key: WEB3FORMS_ACCESS_KEY,
+                subject: "Нова заявка з калькулятора LUMIRBUD",
+                from_name: "LUMIRBUD — сайт",
+                name: name,
+                phone: phone,
+                type: propertyType,
+                area: area + " м²",
+                lang: document.documentElement.lang,
+                message:
+                    "Нова заявка з калькулятора LUMIRBUD\n" +
+                    "Тип нерухомості: " + propertyType + "\n" +
+                    "Площа: " + area + " м²\n" +
+                    "Ім'я: " + name + "\n" +
+                    "Телефон: " + phone,
+                botcheck: false
+            };
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (result) {
+                if (result && result.success) {
+                    form.reset();
+                    setStatus(t("calc_ok"), "ok");
+                } else {
+                    console.error("Web3Forms error:", result);
+                    setStatus(t("calc_err"), "error");
+                }
+            })
+            .catch(function (error) {
+                console.error("Form submission error:", error);
+                setStatus(t("calc_err"), "error");
+            })
+            .finally(function () {
+                btn.disabled = false;
+                btnText.textContent = t("calc_btn");
+            });
+        });
+    })();
+</script>
